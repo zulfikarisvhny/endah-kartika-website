@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Endah Kartika Makeup — Portofolio & Pricelist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --shell:#FBF7F4;
+    --shell-deep:#F3ECE7;
+    --plum:#3A1F2B;
+    --plum-soft:#52303F;
+    --mauve:#B98592;
+    --mauve-deep:#9C6877;
+    --blush:#EFD9D3;
+    --gold:#C9A66B;
+    --ink:#2A2024;
+    --ink-soft:rgba(42,32,36,0.62);
+    --ink-faint:rgba(42,32,36,0.4);
+    --line:rgba(42,32,36,0.12);
+
+    --font-display:'Fraunces',serif;
+    --font-body:'Plus Jakarta Sans',sans-serif;
+    --font-mono:'Space Mono',monospace;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--font-body);
+    background:var(--shell);
+    color:var(--ink);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;}
+  section{padding:120px 0;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+  }
+
+  /* ---------- reveal ---------- */
+  .reveal{opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.is-visible{opacity:1; transform:translateY(0);}
+
+  /* ---------- NAVBAR ---------- */
+  header.navbar{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(251,247,244,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 32px; max-width:1180px; margin:0 auto;
+  }
+  .brand{
+    font-family:var(--font-display); font-weight:600; font-size:1.3rem;
+    letter-spacing:.2px; color:var(--plum);
+    display:flex; align-items:center; gap:10px;
+  }
+  .brand .dot{
+    width:11px; height:11px; border-radius:50%;
+    background:radial-gradient(circle at 30% 30%, var(--gold), var(--mauve-deep));
+    display:inline-block;
+  }
+  .switcher{
+    display:flex; align-items:center; gap:4px;
+    background:var(--shell-deep); border:1px solid var(--line);
+    border-radius:999px; padding:4px;
+  }
+  .switcher button{
+    font-family:var(--font-body); font-weight:600; font-size:.84rem;
+    border:none; background:transparent; cursor:pointer;
+    padding:9px 18px; border-radius:999px; color:var(--ink-soft);
+    display:flex; align-items:center; gap:7px;
+    transition:background .3s ease, color .3s ease;
+  }
+  .switcher button .swatch{
+    width:9px; height:9px; border-radius:50%; flex-shrink:0;
+  }
+  .switcher button[data-target="reguler"] .swatch{background:var(--mauve);}
+  .switcher button[data-target="wedding"] .swatch{background:var(--plum);}
+  .switcher button.active{
+    background:var(--plum); color:var(--shell);
+  }
+  .switcher button.active .swatch{background:var(--gold);}
+
+  .nav-cta{
+    background:var(--plum); color:var(--shell);
+    font-size:.84rem; font-weight:600;
+    padding:11px 20px; border-radius:999px;
+    display:flex; align-items:center; gap:8px;
+    transition:background .3s ease, transform .3s ease;
+    white-space:nowrap;
+  }
+  .nav-cta:hover{background:var(--mauve-deep); transform:translateY(-1px);}
+  .nav-burger{display:none; background:none; border:none; cursor:pointer; padding:6px;}
+  .nav-burger span{display:block; width:22px; height:2px; background:var(--plum); margin:5px 0; border-radius:2px;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:170px 0 90px;
+    position:relative; overflow:hidden;
+  }
+  .hero::before{
+    content:''; position:absolute; top:-120px; right:-160px;
+    width:520px; height:520px; border-radius:50%;
+    background:radial-gradient(circle, var(--blush) 0%, transparent 70%);
+    z-index:0;
+  }
+  .hero-inner{position:relative; z-index:1; max-width:880px;}
+  .eyebrow{
+    font-family:var(--font-mono); font-size:.78rem; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--mauve-deep);
+    display:flex; align-items:center; gap:10px; margin-bottom:22px;
+  }
+  .eyebrow .rule{width:34px; height:1px; background:var(--mauve-deep);}
+  h1{
+    font-family:var(--font-display); font-weight:500;
+    font-size:clamp(2.4rem, 5.6vw, 4.4rem);
+    line-height:1.06; letter-spacing:-.01em; color:var(--plum);
+  }
+  h1 em{font-style:italic; font-weight:500; color:var(--mauve-deep);}
+  .hero p.lead{
+    font-size:1.08rem; color:var(--ink-soft); max-width:520px;
+    margin-top:24px; line-height:1.7;
+  }
+  .hero-actions{display:flex; gap:14px; margin-top:38px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:9px;
+    padding:15px 26px; border-radius:999px; font-weight:600; font-size:.92rem;
+    transition:transform .3s ease, background .3s ease, color .3s ease, box-shadow .3s ease;
+    border:1px solid transparent; cursor:pointer;
+  }
+  .btn-primary{background:var(--plum); color:var(--shell);}
+  .btn-primary:hover{background:var(--mauve-deep); transform:translateY(-2px); box-shadow:0 10px 24px -10px rgba(58,31,43,.5);}
+  .btn-ghost{border-color:var(--line); color:var(--plum); background:transparent;}
+  .btn-ghost:hover{border-color:var(--plum); transform:translateY(-2px);}
+
+  .hero-tiles{
+    display:flex; gap:14px; margin-top:64px; flex-wrap:wrap;
+  }
+  .tile{
+    flex:1; min-width:220px;
+    border:1px solid var(--line); border-radius:18px; padding:20px 22px;
+    background:rgba(255,255,255,.5);
+  }
+  .tile .tile-tag{font-family:var(--font-mono); font-size:.72rem; color:var(--mauve-deep); text-transform:uppercase; letter-spacing:.06em;}
+  .tile h3{font-family:var(--font-display); font-size:1.2rem; font-weight:500; color:var(--plum); margin-top:8px;}
+  .tile p{font-size:.86rem; color:var(--ink-soft); margin-top:6px;}
+
+  /* ---------- SECTION HEAD ---------- */
+  .section-head{max-width:640px; margin-bottom:56px;}
+  .section-head h2{
+    font-family:var(--font-display); font-weight:500;
+    font-size:clamp(1.9rem, 3.4vw, 2.6rem); color:var(--plum); line-height:1.12;
+  }
+  .section-head p{color:var(--ink-soft); margin-top:14px; font-size:1.02rem;}
+
+  section#wedding{background:var(--plum); color:var(--shell);}
+  #wedding .eyebrow{color:var(--gold);}
+  #wedding .eyebrow .rule{background:var(--gold);}
+  #wedding .section-head h2{color:var(--shell);}
+  #wedding .section-head p{color:rgba(251,247,244,.7);}
+
+  /* ---------- PORTFOLIO GRID ---------- */
+  .portfolio-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-bottom:80px;
+  }
+  .frame{
+    aspect-ratio:3/4; border-radius:20px; position:relative; overflow:hidden;
+    display:flex; align-items:flex-end; padding:18px;
+    border:1px solid var(--line);
+  }
+  .portfolio-grid-2{grid-template-columns:repeat(2,1fr);}
+  .frame.frame-wide{aspect-ratio:4/3;}
+  .frame.frame-tall{aspect-ratio:3/4.2;}
+  .frame.has-photo{padding:0; background:none;}
+  .frame.has-photo img{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;
+  }
+  .frame.has-photo::after{
+    content:''; position:absolute; inset:0; z-index:1;
+    background:linear-gradient(180deg,
+      rgba(168,52,84,0) 0%,
+      rgba(168,52,84,0) 38%,
+      rgba(189,72,103,.5) 64%,
+      rgba(150,40,70,.92) 100%);
+  }
+  .frame.has-photo span.label{
+    position:relative; z-index:2; background:none; padding:0;
+    color:#fff; font-weight:600; font-size:1.4rem;
+    text-shadow:0 2px 12px rgba(0,0,0,.45);
+    margin:0 0 24px 26px;
+  }
+  .frame.has-photo.dark span.label{background:none; color:#fff;}
+
+  .frame .frame-icon{
+    position:absolute; top:50%; left:50%; transform:translate(-50%,-58%);
+    opacity:.55;
+  }
+  .frame span.label{
+    font-family:var(--font-mono); font-size:.76rem; color:var(--ink);
+    background:rgba(255,255,255,.78); padding:6px 12px; border-radius:999px;
+    position:relative; z-index:2;
+  }
+  .frame.dark span.label{color:var(--shell); background:rgba(58,31,43,.55);}
+  .frame .hint{
+    position:absolute; bottom:16px; right:16px; z-index:2;
+    font-size:.66rem; font-family:var(--font-mono); color:var(--ink-faint);
+    border:1px dashed var(--ink-faint); border-radius:999px; padding:4px 10px;
+  }
+  .frame.dark .hint{color:rgba(251,247,244,.55); border-color:rgba(251,247,244,.35);}
+
+  .f1{background:linear-gradient(155deg,#F3D9D1,#E7BFC3);}
+  .f2{background:linear-gradient(155deg,#EAD6C6,#D8B6BE);}
+  .f3{background:linear-gradient(155deg,#E3C7CE,#C99CA6);}
+  .f4{background:linear-gradient(155deg,#523040,#36202C);}
+  .f5{background:linear-gradient(155deg,#664057,#3A1F2B);}
+  .f6{background:linear-gradient(155deg,#7A4F5E,#41263A);}
+
+  /* ---------- PRICELIST ---------- */
+  .price-block-title{
+    font-family:var(--font-mono); font-size:.78rem; letter-spacing:.06em;
+    text-transform:uppercase; color:var(--mauve-deep); margin-bottom:18px;
+  }
+  #wedding .price-block-title{color:var(--gold);}
+
+  .price-list{border-top:1px solid var(--line);}
+  #wedding .price-list{border-top:1px solid rgba(251,247,244,.18);}
+  .price-row{
+    display:flex; justify-content:space-between; align-items:center; gap:24px;
+    padding:22px 0; border-bottom:1px solid var(--line); flex-wrap:wrap;
+  }
+  #wedding .price-row{border-bottom:1px solid rgba(251,247,244,.18);}
+  .price-row .name{display:flex; align-items:baseline; gap:12px;}
+  .price-row .swatch-dot{width:8px; height:8px; border-radius:50%; background:var(--mauve); flex-shrink:0; margin-top:2px;}
+  #wedding .price-row .swatch-dot{background:var(--gold);}
+  .price-row h4{font-family:var(--font-display); font-weight:500; font-size:1.1rem;}
+  .price-row .note{font-size:.86rem; color:var(--ink-soft); display:block; margin-top:4px;}
+  #wedding .price-row .note{color:rgba(251,247,244,.65);}
+  .price-row .price{
+    font-family:var(--font-mono); font-weight:700; font-size:1.05rem; color:var(--plum); white-space:nowrap;
+  }
+  #wedding .price-row .price{color:var(--gold);}
+
+  .footnote-banner{
+    margin-top:26px; padding:16px 22px; border-radius:14px;
+    background:var(--blush); font-size:.88rem; color:var(--ink);
+    display:flex; gap:10px; align-items:flex-start;
+  }
+  #wedding .footnote-banner{background:rgba(251,247,244,.08); color:rgba(251,247,244,.85); border:1px solid rgba(251,247,244,.18);}
+
+  .mini-cta{
+    margin-top:30px; display:inline-flex; align-items:center; gap:9px;
+    font-weight:600; font-size:.92rem; color:var(--plum);
+    border-bottom:1px solid var(--plum); padding-bottom:3px;
+  }
+  #wedding .mini-cta{color:var(--shell); border-color:var(--shell);}
+
+  .price-detail{margin:80px 0 0;}
+
+  /* package cards */
+  .package-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:30px;}
+  .package-card{
+    background:rgba(251,247,244,.05);
+    border:1px solid rgba(251,247,244,.18);
+    border-radius:22px; padding:32px;
+  }
+  .package-card.featured{
+    background:linear-gradient(160deg, rgba(201,166,107,.14), rgba(251,247,244,.04));
+    border-color:rgba(201,166,107,.45);
+  }
+  .package-tag{
+    font-family:var(--font-mono); font-size:.7rem; text-transform:uppercase;
+    letter-spacing:.06em; color:var(--gold);
+  }
+  .package-card h3{
+    font-family:var(--font-display); font-weight:500; font-size:1.5rem;
+    margin-top:10px; color:var(--shell);
+  }
+  .package-card .pprice{
+    font-family:var(--font-mono); font-weight:700; font-size:1.6rem;
+    color:var(--gold); margin-top:8px; display:block;
+  }
+  .package-card ol{margin-top:20px; padding-left:0; counter-reset:pkg;}
+  .package-card ol li{
+    counter-increment:pkg; font-size:.92rem; color:rgba(251,247,244,.8);
+    display:flex; gap:12px; padding:10px 0; border-top:1px solid rgba(251,247,244,.12);
+  }
+  .package-card ol li:first-child{border-top:none;}
+  .package-card ol li::before{
+    content:counter(pkg); font-family:var(--font-mono); font-size:.78rem;
+    color:var(--gold); flex-shrink:0;
+  }
+
+  .addons{margin-top:64px;}
+  .addons-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:22px;
+  }
+  .addon-item{
+    border:1px solid rgba(251,247,244,.18); border-radius:14px; padding:18px;
+    display:flex; justify-content:space-between; align-items:center; gap:12px;
+  }
+  .addon-item span.aname{font-size:.92rem; color:rgba(251,247,244,.85);}
+  .addon-item span.aprice{font-family:var(--font-mono); font-size:.86rem; color:var(--gold); white-space:nowrap;}
+
+  /* ---------- CTA FOOTER ---------- */
+  .cta-footer{
+    background:var(--shell); text-align:center; padding-bottom:60px;
+  }
+  .cta-footer h2{
+    font-family:var(--font-display); font-weight:500;
+    font-size:clamp(2rem, 4.2vw, 3.2rem); color:var(--plum); max-width:680px; margin:0 auto;
+  }
+  .cta-footer p{color:var(--ink-soft); margin-top:18px; max-width:480px; margin-inline:auto;}
+  .cta-actions{display:flex; gap:14px; justify-content:center; margin-top:36px; flex-wrap:wrap;}
+  .contact-line{
+    margin-top:50px; font-family:var(--font-mono); font-size:.86rem; color:var(--ink-faint);
+    display:flex; gap:24px; justify-content:center; flex-wrap:wrap;
+  }
+
+  footer.site-footer{
+    border-top:1px solid var(--line); padding:28px 0;
+    text-align:center; font-size:.8rem; color:var(--ink-faint);
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 880px){
+    .switcher{display:none;}
+    .nav-burger{display:block;}
+    section{padding:90px 0;}
+    .portfolio-grid{grid-template-columns:repeat(2,1fr);}
+    .package-grid{grid-template-columns:1fr;}
+    .addons-grid{grid-template-columns:repeat(2,1fr);}
+    .hero{padding-top:140px;}
+  }
+  @media (max-width: 560px){
+    .portfolio-grid{grid-template-columns:repeat(2,1fr); gap:12px;}
+    .portfolio-grid-2{grid-template-columns:1fr;}
+    .addons-grid{grid-template-columns:1fr;}
+    .price-row{padding:18px 0;}
+    .nav-cta span.cta-text{display:none;}
+    .hero-tiles{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="nav-inner">
+    <a class="brand" href="#top"><span class="dot"></span>Endah Kartika Makeup</a>
+    <div class="switcher" id="switcher">
+      <button data-target="reguler" class="active"><span class="swatch"></span>Reguler</button>
+      <button data-target="wedding"><span class="swatch"></span>Wedding</button>
+    </div>
+    <a class="nav-cta" href="https://wa.me/6288802748022?text=Halo%20Endah%2C%20saya%20mau%20tanya%20booking%20makeup" target="_blank" rel="noopener">
+      <span class="cta-text">Booking via WhatsApp</span><span>→</span>
+    </a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div class="eyebrow"><span class="rule"></span>Make Up Artist</div>
+      <h1>Cantik natural untuk<br>hari biasa, <em>cantik maksimal</em><br>untuk hari spesialmu.</h1>
+      <p class="lead">Endah Kartika Makeup melayani riasan untuk acara reguler party, wisuda, engagement hingga riasan pengantin lengkap untuk akad dan resepsi.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#reguler">Lihat Portofolio & Pricelist</a>
+        <a class="btn btn-ghost" href="https://www.instagram.com/endahkartika.makeup/" target="_blank" rel="noopener">Instagram @endahkartika.makeup</a>
+      </div>
+
+      <div class="hero-tiles">
+        <a href="#reguler" class="tile reveal">
+          <div class="tile-tag">01 · Reguler</div>
+          <h3>Party, Wisuda & Engagement</h3>
+          <p>Mulai dari Rp200.000</p>
+        </a>
+        <a href="#wedding" class="tile reveal">
+          <div class="tile-tag">02 · Wedding</div>
+          <h3>Akad, Resepsi & Paket Lengkap</h3>
+          <p>Mulai dari Rp500.000</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION REGULER ================= -->
+  <section id="reguler">
+    <div class="wrap">
+      <div class="eyebrow reveal"><span class="rule"></span>01 — Makeup Reguler</div>
+      <div class="section-head reveal">
+        <h2>Untuk hari-hari pentingmu yang santai.</h2>
+        <p>Riasan natural dan rapi untuk party, wisuda, jadi bridesmaid, atau pendamping acara — tahan lama tanpa terlihat berlebihan.</p>
+      </div>
+
+      <!-- portfolio -->
+      <div class="portfolio-grid">
+        <div class="frame f1 has-photo reveal"><img src="photos/IMG_8873.jpg" alt="Party Look makeup by Endah Kartika"><span class="label">Party Look</span></div>
+        <div class="frame f2 has-photo reveal"><img src="photos/IMG_0309.jpg" alt="Wisuda Look makeup by Endah Kartika"><span class="label">Wisuda Look</span></div>
+        <div class="frame f3 has-photo reveal"><img src="photos/IMG_3990.jpg" alt="Bridesmaid Look makeup by Endah Kartika"><span class="label">Bridesmaid</span></div>
+        <div class="frame f3 has-photo reveal"><img src="photos/IMG_9925.jpg" alt="Engagement Look makeup by Endah Kartika"><span class="label">Engagement</span></div>
+        <div class="frame f2 has-photo reveal"><img src="photos/IMG_3216.jpg" alt="Prewedding Look makeup by Endah Kartika"><span class="label">Prewedding</span></div>
+        <div class="frame f1 has-photo reveal"><img src="photos/IMG_3764.jpg" alt="Penjaga Buku Tamu makeup by Endah Kartika"><span class="label">Penjaga Buku Tamu</span></div>
+      </div>
+
+      <!-- pricelist -->
+      <div class="price-detail reveal">
+        <div class="price-block-title">Pricelist Reguler</div>
+        <div class="price-list">
+          <div class="price-row">
+            <div class="name"><span class="swatch-dot"></span><div><h4>Party, Bridesmaid, Pendamping Wisuda, Penjaga Buku Tamu, dll</h4></div></div>
+            <div class="price">Rp200.000</div>
+          </div>
+          <div class="price-row">
+            <div class="name"><span class="swatch-dot"></span><div><h4>Graduation</h4></div></div>
+            <div class="price">Rp250.000</div>
+          </div>
+          <div class="price-row">
+            <div class="name"><span class="swatch-dot"></span><div><h4>Paket Wisuda & Pendamping</h4></div></div>
+            <div class="price">Rp400.000</div>
+          </div>
+          <div class="price-row">
+            <div class="name"><span class="swatch-dot"></span><div><h4>Engagement & Prewedding</h4></div></div>
+            <div class="price">Rp350.000</div>
+          </div>
+        </div>
+
+        <div class="footnote-banner">
+          <span>💄</span>
+          <span>Setiap pricelist di atas sudah <strong> free Hijabdo </strong>. Mau tambah <strong>Hairdo</strong>? Cukup tambah <strong>+Rp200.000</strong>.</span>
+        </div>
+
+        <a class="mini-cta" href="https://wa.me/6288802748022?text=Halo%20Endah%2C%20saya%20mau%20booking%20makeup%20reguler" target="_blank" rel="noopener">Booking Makeup Reguler →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION WEDDING ================= -->
+  <section id="wedding">
+    <div class="wrap">
+      <div class="eyebrow reveal"><span class="rule"></span>02 — Makeup Wedding</div>
+      <div class="section-head reveal">
+        <h2>Untuk hari yang hanya datang sekali.</h2>
+        <p>Riasan pengantin untuk Akad, Holy Matrimony, Resepsi, hingga Ngunduh Mantu — dari single makeup sampai paket lengkap bersama tim.</p>
+      </div>
+
+      <!-- portfolio -->
+      <div class="portfolio-grid portfolio-grid-2">
+        <div class="frame frame-tall f5 dark has-photo reveal"><img src="photos/IMG_0336.jpg" alt="Akad makeup by Endah Kartika"><span class="label">Akad</span></div>
+        <div class="frame frame-tall f5 dark has-photo reveal"><img src="photos/IMG_0378.jpg" alt="Resepsi makeup by Endah Kartika"><span class="label">Resepsi</span></div>
+      </div>
+
+      <!-- single pricelist -->
+      <div class="price-detail reveal">
+        <div class="price-block-title">Pricelist Holy Matrimony / Akad / Resepsi / Ngunduh Mantu</div>
+        <div class="price-list">
+          <div class="price-row">
+            <div class="name"><span class="swatch-dot"></span><div>
+              <h4>Makeup Only</h4>
+              <span class="note">Makeup termasuk hair/hijab do · no retouch · free softlens normal</span>
+            </div></div>
+            <div class="price">Rp1.200.000</div>
+          </div>
+          <div class="price-row">
+            <div class="name"><span class="swatch-dot"></span><div>
+              <h4>Akad / Holy Matrimony + Resepsi</h4>
+              <span class="note">Makeup termasuk hair/hijab do · retouch 1x · free softlens normal</span>
+            </div></div>
+            <div class="price">Rp1.800.000</div>
+          </div>
+          <div class="price-row">
+            <div class="name"><span class="swatch-dot"></span><div>
+              <h4>Wedding Trial Makeup</h4>
+              <span class="note">Makeup only · bisa dipakai untuk prewedding photoshoot (no retouch)</span>
+            </div></div>
+            <div class="price">Rp500.000</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- packages -->
+      <div class="price-detail reveal">
+        <div class="price-block-title">Wedding Package</div>
+        <div class="package-grid">
+          <div class="package-card">
+            <div class="package-tag">Paket Akad / Resepsi Only</div>
+            <h3>Wedding Package A</h3>
+            <span class="pprice">Rp2.200.000</span>
+            <ol>
+              <li>Makeup CPP + CPW termasuk Hairdo/Hijabdo</li>
+              <li>Makeup Ibu CPP dan CPW termasuk Hairdo/Hijabdo by team</li>
+              <li>Free softlens normal</li>
+              <li>Free fake nail art</li>
+            </ol>
+          </div>
+          <div class="package-card featured">
+            <div class="package-tag">Paket Akad / Holy Matrimony + Resepsi</div>
+            <h3>Wedding Package B</h3>
+            <span class="pprice">Rp3.200.000</span>
+            <ol>
+              <li>Makeup CPP + CPW termasuk Hairdo/Hijabdo + retouch</li>
+              <li>Makeup Ibu CPP dan CPW termasuk Hairdo/Hijabdo by team (makeup 1x)</li>
+              <li>Wedding Trial Makeup 1x (bisa untuk prewedding, makeup only)</li>
+              <li>Free softlens normal</li>
+              <li>Free fake nail art</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <!-- addons -->
+      <div class="addons reveal">
+        <div class="price-block-title">Additional by Team</div>
+        <div class="addons-grid">
+          <div class="addon-item"><span class="aname">Makeup Mom / Sister of Bride (+hair/hijab do)</span><span class="aprice">Rp300.000</span></div>
+          <div class="addon-item"><span class="aname">Makeup Jaga Kado (+hair/hijab do)</span><span class="aprice">Rp250.000</span></div>
+          <div class="addon-item"><span class="aname">Adat</span><span class="aprice">mulai Rp750.000</span></div>
+          <div class="addon-item"><span class="aname">Melati</span><span class="aprice">mulai Rp500.000</span></div>
+          <div class="addon-item"><span class="aname">Attire</span><span class="aprice">mulai Rp750.000</span></div>
+          <div class="addon-item"><span class="aname">Fake Nail Art</span><span class="aprice">mulai Rp100.000</span></div>
+        </div>
+
+        <div class="footnote-banner">
+          <span>📍</span>
+          <span>Semua harga di atas belum termasuk biaya <strong>homeservice MUA & hair/hijab do</strong>. Biaya disesuaikan jarak — konfirmasi ke admin.</span>
+        </div>
+
+        <a class="mini-cta" href="https://wa.me/6288802748022?text=Halo%20Endah%2C%20saya%20mau%20booking%20makeup%20wedding" target="_blank" rel="noopener">Booking Makeup Wedding →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA FOOTER ================= -->
+  <section class="cta-footer" id="booking">
+    <div class="wrap">
+      <h2 class="reveal">Siap tampil cantik di hari spesialmu?</h2>
+      <p class="reveal">Chat langsung untuk konsultasi tanggal, lokasi, dan paket yang paling cocok.</p>
+      <div class="cta-actions reveal">
+        <a class="btn btn-primary" href="https://wa.me/6288802748022?text=Halo%20Endah%2C%20saya%20mau%20booking%20makeup" target="_blank" rel="noopener">Booking via WhatsApp</a>
+        <a class="btn btn-ghost" href="https://www.instagram.com/endahkartika.makeup/" target="_blank" rel="noopener">Lihat Instagram</a>
+      </div>
+      <div class="contact-line reveal">
+        <span>WA +62 888-0274-8022</span>
+        <span>IG @endahkartika.makeup</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  © 2026 Endah Kartika Makeup. Semua harga dapat berubah sewaktu-waktu, hubungi admin untuk info terbaru.
+</footer>
+
+<script>
+  // smooth scrollspy + switcher
+  const switcher = document.getElementById('switcher');
+  const buttons = switcher ? switcher.querySelectorAll('button') : [];
+  const sections = ['reguler','wedding'].map(id => document.getElementById(id));
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = document.getElementById(btn.dataset.target);
+      if(target) target.scrollIntoView({behavior:'smooth'});
+    });
+  });
+
+  const setActive = (id) => {
+    buttons.forEach(b => b.classList.toggle('active', b.dataset.target === id));
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        setActive(entry.target.id);
+      }
+    });
+  }, {rootMargin:'-45% 0px -45% 0px'});
+
+  sections.forEach(sec => sec && observer.observe(sec));
+
+  // reveal on scroll
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.15});
+
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+</script>
+
+</body>
+</html>
